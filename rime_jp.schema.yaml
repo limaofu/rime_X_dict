@@ -1,0 +1,63 @@
+# Rime schema settings
+# encoding: utf-8
+# Author: Cof-Lee
+# 2020-05-27
+
+schema:
+  schema_id: rime_jp
+  name: "rime_jp"
+  version: "0.1"
+  author:
+    - Author Cof-Lee
+  description: |
+    xx
+    xx
+    
+
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - reverse_lookup_translator
+    - table_translator
+
+speller:
+  delimiter: " ;'"
+  max_code_length: 4
+
+translator:
+  dictionary: rime_jp
+  enable_charset_filter: true
+  enable_sentence: false
+  enable_encoder: true
+  encode_commit_history: true
+  max_phrase_length: 4
+  enable_user_dict: false
+
+
+punctuator:
+  import_preset: default
+
+key_binder:
+  import_preset: default
+  bindings:
+    - {accept: semicolon, send: 2, when: has_menu}
+    - {accept: apostrophe, send: 3, when: has_menu}
+  
+
+recognizer:
+  import_preset: default
