@@ -1,6 +1,8 @@
 # Rime schema settings
 # encoding: utf-8
 # 2020-05-28
+# Author: Cof-Lee
+# 当前版本可输入：日文平、版假名，希腊字母，汉语拼音声调符号，以及常用的其他符号
 
 schema:
   schema_id: cof_punctuator
