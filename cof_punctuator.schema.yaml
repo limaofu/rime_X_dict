@@ -35,7 +35,7 @@ engine:
     - table_translator
 
 speller:
-  delimiter: " ;'"
+  delimiter: " "
   max_code_length: 10
 
 translator:
