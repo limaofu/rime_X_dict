@@ -433,8 +433,10 @@ encoder:
 Ω	omega	20000
 ω	omega	10000
 #/khi:/
-Χ	chi	20000
-χ	chi	10000
+Χ	chi	2000
+χ	chi	1000
+Χ	khi	20000
+χ	khi	10000
 Ψ	psi	20000
 ψ	psi	10000
 Ζ	zeta	20000
