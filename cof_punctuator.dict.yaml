@@ -1,0 +1,481 @@
+# Rime dictionary: cof_punctuator
+# encoding: utf-8
+# Author: Cof-Lee
+---
+name: cof_punctuator
+version: "0.1"
+sort: by_weight
+columns:
+  - text
+  - code
+  - weight
+  - stem
+encoder:
+  exclude_patterns:
+   
+  rules:
+    - length_equal: 2
+      formula: "AaAbBaBb"
+    - length_equal: 3
+      formula: "AaBaCaCb"
+    - length_in_range: [4, 10]
+      formula: "AaBaCaZa"
+...
+
+あ	a	20000
+ア	a	10000
+い	i	20000
+イ	i	10000
+う	u	20000
+ウ	u	10000
+え	e	20000
+エ	e	10000
+お	o	20000
+オ	o	10000
+か	ka	20000
+カ	ka	10000
+き	ki	20000
+キ	ki	10000
+く	ku	20000
+ク	ku	10000
+け	ke	20000
+ケ	ke	10000
+こ	ko	20000
+コ	ko	10000
+さ	sa	20000
+サ	sa	10000
+し	si	20000
+シ	si	10000
+し	shi	20000
+シ	shi	10000
+す	su	20000
+ス	su	10000
+せ	se	20000
+セ	se	10000
+そ	so	20000
+ソ	so	10000
+た	ta	20000
+タ	ta	10000
+ち	ci	20000
+チ	ci	10000
+ち	chi	20000
+チ	chi	10000
+つ	tu	20000
+ツ	tu	10000
+つ	tsu	20000
+ツ	tsu	10000
+て	te	20000
+テ	te	10000
+と	to	20000
+ト	to	10000
+な	na	20000
+ナ	na	10000
+に	ni	20000
+ニ	ni	10000
+ぬ	nu	20000
+ヌ	nu	10000
+ね	ne	20000
+ネ	ne	10000
+の	no	20000
+ノ	no	10000
+は	ha	20000
+ハ	ha	10000
+ひ	hi	20000
+ヒ	hi	10000
+ふ	fu	20000
+フ	fu	10000
+ふ	hu	20000
+フ	hu	10000
+へ	he	20000
+へ	e	2000
+ヘ	he	10000
+ヘ	hek	9000
+ほ	ho	20000
+ホ	ho	10000
+ま	ma	20000
+マ	ma	10000
+み	mi	20000
+ミ	mi	10000
+む	mu	20000
+ム	mu	10000
+め	me	20000
+メ	me	10000
+も	mo	20000
+モ	mo	10000
+や	ya	20000
+ヤ	ya	10000
+ゆ	yu	20000
+ユ	yu	10000
+よ	yo	20000
+ヨ	yo	10000
+ら	ra	20000
+ラ	ra	10000
+り	ri	20000
+リ	ri	10000
+る	ru	20000
+ル	ru	10000
+れ	re	20000
+レ	re	10000
+ろ	ro	20000
+ロ	ro	10000
+わ	wa	20000
+ワ	wa	10000
+は	wa	9000
+ゐ	wi	20000
+ヰ	wi	10000
+ゑ	we	20000
+ヱ	we	10000
+を	wo	20000
+ヲ	wo	10000
+を	o	9000
+ヲ	o	8000
+
+ん	n	20000
+ン	n	10000
+
+が	ga	20000
+ガ	ga	10000
+ぎ	gi	20000
+ギ	gi	10000
+ぐ	gu	20000
+グ	gu	10000
+げ	ge	20000
+ゲ	ge	10000
+ご	go	20000
+ゴ	go	10000
+
+ざ	za	20000
+ザ	za	10000
+じ	ji	29000
+ジ	ji	28000
+じ	zi	29000
+ジ	zi	28000
+ず	zu	29000
+ズ	zu	28000
+ぜ	ze	20000
+ゼ	ze	10000
+ぞ	zo	20000
+ゾ	zo	10000
+
+だ	da	20000
+ダ	da	10000
+ぢ	ji	20000
+ヂ	ji	10000
+ぢ	di	2000
+ヂ	di	1000
+づ	zu	20000
+ヅ	zu	10000
+づ	du	2000
+ヅ	du	1000
+で	de	20000
+デ	de	10000
+ど	do	20000
+ド	do	10000
+
+ば	ba	20000
+バ	ba	10000
+び	bi	20000
+ビ	bi	10000
+ぶ	bu	20000
+ブ	bu	10000
+べ	be	20000
+ベ	be	10000
+ベ	bek	9000
+ぼ	bo	20000
+ボ	bo	10000
+
+ぱ	pa	20000
+パ	pa	10000
+ぴ	pi	20000
+ピ	pi	10000
+ぷ	pu	20000
+プ	pu	10000
+ぺ	pe	20000
+ペ	pe	10000
+ペ	pek	9000
+ぽ	po	20000
+ポ	po	10000
+
+
+# 小写
+ぁ	xa	20000
+ァ	xa	10000
+ぃ	xi	20000
+ィ	xi	10000
+ぅ	xu	20000
+ゥ	xu	10000
+ぇ	xe	20000
+ェ	xe	10000
+ぉ	xo	20000
+ォ	xo	10000
+ゃ	xya	20000
+ャ	xya	10000
+ゅ	xyu	20000
+ュ	xyu	10000
+ょ	xyo	20000
+ョ	xyo	10000
+ゎ	xwa	20000
+ヮ	xwa	10000
+ヵ	xka	20000
+ヶ	xke	20000
+
+#促音
+っ	xtu	20000
+ッ	xtu	10000
+っ	xtsu	20000
+ッ	xtsu	10000
+
+# bu
+ヴ	v	20000
+ヴ	b	20000
+
+# 长音符号
+ー	p	350
+
+#拗音
+きゃ	kya	20000
+キャ	kya	10000
+きゅ	kyu	20000
+キュ	kyu	10000
+きょ	kyo	20000
+キョ	kyo	10000
+ぎゃ	gya	20000
+ギャ	gya	10000
+ぎゅ	gyu	20000
+ギュ	gyu	10000
+ぎょ	gyo	20000
+ギョ	gyo	10000
+にゃ	nya	20000
+ニャ	nya	10000
+にゅ	nyu	20000
+ニュ	nyu	10000
+にょ	nyo	20000
+ニョ	nyo	10000
+ひゃ	hya	20000
+ヒャ	hya	10000
+ひゅ	hyu	20000
+ヒュ	hyu	10000
+ひょ	hyo	20000
+ヒョ	hyo	10000
+びゃ	bya	20000
+ビャ	bya	10000
+びゅ	byu	20000
+ビュ	byu	10000
+びょ	byo	20000
+ビョ	byo	10000
+ぴゃ	pya	20000
+ピャ	pya	10000
+ぴゅ	pyu	20000
+ピュ	pyu	10000
+ぴょ	pyo	20000
+ピョ	pyo	10000
+しゃ	sha	20000
+シャ	sha	10000
+しゅ	shu	20000
+シュ	shu	10000
+しょ	sho	20000
+ショ	sho	10000
+じゃ	ja	20000
+ジャ	ja	10000
+じゅ	ju	20000
+ジュ	ju	10000
+じょ	jo	20000
+ジョ	jo	10000
+らゃ	rya	20000
+ラャ	rya	10000
+らゅ	ryu	20000
+ラュ	ryu	10000
+らょ	ryo	20000
+ラョ	ryo	10000
+みゃ	mya	20000
+ミャ	mya	10000
+みゅ	myu	20000
+ミュ	myu	10000
+みょ	myo	20000
+ミョ	myo	10000
+
+#外来语专用音节
+ツァ	tsa	20000
+ファ	fa	20000
+ウィ	wi	29000
+ティ	ti	20000
+フィ	fi	20000
+ディ	di	29000
+トゥ	tu	29000
+ドゥ	du	29000
+デュ	dyu	20000
+ウェ	we	29000
+シェ	she	20000
+チェ	che	20000
+ツェ	tse	20000
+フェ	fe	20000
+ジェ	je	20000
+ウォ	wo	29000
+ツォ	tso	20000
+フォ	fo	20000
+
+々	dz	20000
+々	odori	20000
+
+゛	zzd	656
+゜	zzh	655
+ゝ	zzdh	654
+ゞ	zzdd	653
+
+ヽ	zzjp	349
+ヾ	zzjp	348
+
+#汉语拼音声调
+ā	sda	19000
+á	sdac	18000
+ǎ	sdax	17000
+à	sdav	16000
+ō	sdo	19000
+ó	sdoc	18000
+ǒ	sdox	17000
+ò	sdov	16000
+ē	sde	19000
+é	sdec	18000
+ě	sdex	17000
+ê	sdex	16000
+è	sdev	15000
+ī	sdi	19000
+í	sdic	18000
+ǐ	sdix	17000
+ì	sdiv	16000
+ǖ	sdv	19000
+ü	sdv	18000
+ǘ	sdvc	17000
+ǚ	sdvx	16000
+ǜ	sdvv	15000
+ū	sdu	19000
+ú	sduc	18000
+ǔ	sdux	17000
+ù	sduv	16000
+
+#箭头
+→	jtr	19000
+↑	jtu	18000
+←	jtl	17000
+↓	jtd	16000
+→	jty	15000
+↑	jts	14000
+←	jtz	13000
+↓	jtx	12000
+→	arrowr	20005
+←	arrowl	20004
+↓	arrowd	20003
+↑	arrowu	20002
+
+#希腊字母
+Α	xla	20000
+α	xla	10000
+Α	alpha	20000
+α	alpha	10000
+Β	xlb	20000
+β	xlb	10000
+Β	beta	20000
+β	beta	10000
+Θ	theta	20000
+θ	theta	10000
+Δ	xld	20000
+δ	xld	10000
+Δ	delta	20000
+δ	delta	10000
+Ε	epsilon	20000
+ε	epsilon	10000
+Φ	phy	20000
+φ	phy	10000
+Φ	fai	20000
+φ	fai	10000
+Γ	xlg	20000
+γ	xlg	10000
+Γ	gamma	20000
+γ	gamma	10000
+Η	eta	20000
+η	eta	10000
+Ι	iota	20000
+ι	iota	10000
+Κ	kappa	20000
+κ	kappa	10000
+Λ	lambda	20000
+λ	lambda	10000
+Λ	lamda	20000
+λ	lamda	10000
+Μ	my	20000
+μ	my	10000
+Ν	ny	20000
+ν	ny	10000
+Ο	omicron	20000
+ο	omicron	10000
+Π	xlpi	20000
+π	xlpi	10000
+Π	pi	2000
+π	pi	1000
+Π	pai	2000
+π	pai	1000
+Ξ	ksi	20000
+ξ	ksi	10000
+Ξ	xi	2000
+ξ	xi	1000
+Ρ	rho	20000
+ρ	rho	10000
+Ρ	rou	20000
+ρ	rou	10000
+Σ	sigma	20000
+σ	sigma	10000
+Τ	tao	20000
+τ	tao	10000
+Τ	tau	20000
+τ	tau	10000
+Υ	ypsilon	20000
+υ	ypsilon	20000
+Ω	omega	20000
+ω	omega	10000
+#/khi:/
+Χ	chi	20000
+χ	chi	10000
+Ψ	psi	20000
+ψ	psi	10000
+Ζ	zeta	20000
+ζ	zeta	10000
+
+
+#数学符号
+±	sxjj	20000
+×	sxcheng	20009
+÷	sxchu	20008
+∞	sxwq	20000
+≤	sxxd	20000
+≥	sxdd	20000
+≠	sxbdy	20000
+∧	sxand	20000
+∨	sxor	20000
+
+#几何符号
+☆	jhkwx	20000
+○	jhky	20000
+◇	jhklx	20000
+□	jhkz	20000
+△	jhksj	20000
+★	jhswx	20000
+●	jhsy	20000
+◆	jhsl	20000
+■	jhsz	20000
+▲	jhssj	20000
+◎	jhsq	20000
+
+#其他符号
+√	right	20000
+×	wrong	20000
+〇	ling	20000
+㈱	kabu	20000
+㊣	shou	2000
+〆	shime	20000
+乄	shime	10000
+
+#词组（最多12键）
+から	kara	9000
+まで	made	9000
+より	yori	9000
+わたし	watashi	9000
