@@ -1,0 +1,129 @@
+# utf-8
+# wubi86_cof.schema.yaml
+# 2020-05-29
+
+schema:
+  author:
+    - "发明人 王永民先生"
+  description: |
+    五笔86版 带符号输入
+    码表源自 ibus-table
+    开头大写字母进入符号输入模式
+    按下小写 z 键进入cof符号输入法
+    按下TAb键可取消当前输入
+    扩展人：Cof-Lee
+    
+    
+  name: "五笔86_cof"
+  schema_id: wubi86_cof
+  version: 0.211
+speller:
+  delimiter: " "
+  alphabet: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+  max_code_length: 4
+switches:
+  - name: ascii_mode
+    reset: 1
+    states: ["中文", "英文"]
+  - name: full_shape
+    reset: 0
+    states: ["半角", "全角"]
+  - name: extended_charset
+    reset: 1
+    states: ["常用", "扩展"]
+  - name: ascii_punct
+    reset: 0
+    states: ["。，", "．，"]
+translator:
+  dictionary: wubi86_cof
+  disable_user_dict_for_patterns:
+    - "^z.*$"
+  enable_charset_filter: true
+  enable_encoder: true
+  enable_sentence: false
+  enable_user_dict: false
+  encode_commit_history: true
+  max_phrase_length: 4
+  
+engine:
+  processors:
+    - ascii_composer
+    - recognizer
+    - key_binder
+    - speller
+    - punctuator
+    - selector
+    - navigator
+    - express_editor
+  segmentors:
+    - ascii_segmentor
+    - matcher
+    - abc_segmentor
+    - punct_segmentor
+    - fallback_segmentor
+  translators:
+    - punct_translator
+    - reverse_lookup_translator
+    - table_translator
+key_binder:
+  bindings:
+    - {accept: semicolon, send: 2, when: has_menu}
+    - {accept: apostrophe, send: 3, when: has_menu}
+    - {accept: space, send: space, when: has_menu}
+    - {accept: space, send: Escape, when: composing}
+    - {accept: Tab, send: Escape, when: has_menu}
+    - {accept: Tab, send: Escape, when: composing}
+    - {accept: "Shift+space", toggle: full_shape, when: always}
+
+menu:
+  page_size: 5
+punctuator:
+  full_shape: &punct
+    " ": [" ", "　"]
+    "!": ["!", "！"]
+    "\"": {pair: ["“", "”"]}
+    "#": ["#", "＃", "⌘"]
+    "$": ["$", "￥", "¥", "€", "£", "¢", "¤"]
+    "%": ["%", "％", "°", "℃"]
+    "&": ["&", "＆"]
+    "'": {pair: ["‘", "’"]}
+    "(": "（"
+    ")": "）"
+    "*": ["*", "＊", "·", "・", "×", "※", "❂"]
+    "+": ["+", "＋"]
+    ",": {commit: "，"}
+    "-": ["-", "－"]
+    .: {commit: "。"}
+    "/": ["/", "／", "、", "÷"]
+    ":": {commit: "："}
+    ";": {commit: "；"}
+    "<": ["《", "〈", "«", "‹"]
+    "=": ["=", "＝"]
+    ">": ["》", "〉", "»", "›"]
+    "?": {commit: "？"}
+    "@": ["@", "＠", "☯"]
+    "[": ["「", "【", "〔", "［"]
+    "\\": ["、", "＼"]
+    "]": ["」", "】", "〕", "］"]
+    "^": ["^", "……"]
+    _: ["_", "——"]
+    "`": ["`", "｀"]
+    "{": ["『", "〖", "｛"]
+    "|": ["·", "｜", "§", "¦"]
+    "}": ["』", "〗", "｝"]
+    "~": ["~", "～"]
+  half_shape: *punct
+    
+  import_preset: default
+recognizer:
+  import_preset: default
+  patterns:
+    #email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"
+    reverse_lookup: "^z[a-z]*`?$"
+    uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
+    #url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]+[.].+$"
+reverse_lookup:
+  dictionary: cof_punctuator
+  prefix: z
+  suffix: "'"
+  tips: "〔cof_punct〕"
