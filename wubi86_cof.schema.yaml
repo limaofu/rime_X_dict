@@ -79,7 +79,7 @@ menu:
   page_size: 5
 punctuator:
   full_shape: &punct
-    " ": [" ", "　"]
+    #" ": [" ", "　"]
     "!": ["!", "！"]
     "\"": {pair: ["“", "”"]}
     "#": ["#", "＃", "⌘"]
