@@ -11,6 +11,7 @@ schema:
     开头大写字母进入符号输入模式
     按下小写 z 键进入cof符号输入法
     按下TAb键可取消当前输入
+    按下Shift+space切换繁体与简体
     扩展人：Cof-Lee
     
     
@@ -34,8 +35,12 @@ switches:
   - name: ascii_punct
     reset: 0
     states: ["。，", "．，"]
+  - name: zh_trad
+    reset: 0
+    states: [ 简体, 繁體 ]
 translator:
   dictionary: wubi86_cof
+  prism: wubi86_cof
   disable_user_dict_for_patterns:
     - "^z.*$"
   enable_charset_filter: true
@@ -65,6 +70,18 @@ engine:
     - punct_translator
     - reverse_lookup_translator
     - table_translator
+  filters:
+    - simplifier
+    - uniquifier
+ascii_composer:
+  good_old_caps_lock: true
+  switch_key:
+    Caps_Lock: clear
+    Control_L: noop
+    Control_R: noop
+    Eisu_toggle: clear
+    Shift_L: commit_code
+    Shift_R: commit_code
 key_binder:
   bindings:
     - {accept: semicolon, send: 2, when: has_menu}
@@ -73,13 +90,20 @@ key_binder:
     - {accept: space, send: Escape, when: composing}
     - {accept: Tab, send: Escape, when: has_menu}
     - {accept: Tab, send: Escape, when: composing}
-    - {accept: "Shift+space", toggle: full_shape, when: always}
+    - {accept: "Shift+space", toggle: zh_trad, when: always}
+    #- {accept: "Control+Shift", toggle: full_shape, when: always}
+    - {accept: minus, send: Page_Up, when: has_menu}
+    - {accept: equal, send: Page_Down, when: has_menu}
 
 menu:
   page_size: 5
+simplifier:
+  opencc_config: s2t.json
+  option_name: zh_trad
 punctuator:
   full_shape: &punct
     #" ": [" ", "　"]
+    " ": {commit: " "}
     "!": ["!", "！"]
     "\"": {pair: ["“", "”"]}
     "#": ["#", "＃", "⌘"]
