@@ -22,6 +22,8 @@ speller:
   delimiter: " "
   alphabet: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
   max_code_length: 4
+  auto_select: true
+  auto_select_unique_candidate: true
 switches:
   - name: ascii_mode
     reset: 1
@@ -37,17 +39,17 @@ switches:
     states: ["。，", "．，"]
   - name: zh_trad
     reset: 0
-    states: [ 简体, 繁體 ]
+    states: ["简体", "繁體"]
 translator:
   dictionary: wubi86_cof
   prism: wubi86_cof
   disable_user_dict_for_patterns:
     - "^z.*$"
   enable_charset_filter: true
-  enable_encoder: true
+  enable_encoder: false
   enable_sentence: false
   enable_user_dict: false
-  encode_commit_history: true
+  encode_commit_history: false
   max_phrase_length: 4
   
 engine:
@@ -91,15 +93,17 @@ key_binder:
     - {accept: Tab, send: Escape, when: has_menu}
     - {accept: Tab, send: Escape, when: composing}
     - {accept: "Shift+space", toggle: zh_trad, when: always}
-    #- {accept: "Control+Shift", toggle: full_shape, when: always}
+    - {accept: "Control+f", toggle: full_shape, when: always}
     - {accept: minus, send: Page_Up, when: has_menu}
     - {accept: equal, send: Page_Down, when: has_menu}
+
 
 menu:
   page_size: 5
 simplifier:
   opencc_config: s2t.json
   option_name: zh_trad
+  tips: all
 punctuator:
   full_shape: &punct
     #" ": [" ", "　"]
@@ -149,5 +153,5 @@ recognizer:
 reverse_lookup:
   dictionary: cof_punctuator
   prefix: z
-  suffix: "'"
+  suffix: 
   tips: "〔cof_punct〕"
