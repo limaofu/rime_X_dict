@@ -13,17 +13,17 @@ schema:
     按下TAb键可取消当前输入
     按下Shift+space切换繁体与简体
     扩展人：Cof-Lee
-    
-    
   name: "五笔86_cof"
   schema_id: wubi86_cof
   version: 0.211
+
 speller:
   delimiter: " "
   alphabet: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
   max_code_length: 4
   auto_select: true
   auto_select_unique_candidate: true
+
 switches:
   - name: ascii_mode
     reset: 1
@@ -40,12 +40,23 @@ switches:
   - name: zh_trad
     reset: 0
     states: ["简体", "繁體"]
+  #- name: simplification		对五笔不管用
+   # reset: 0
+    #states: [ 漢字, 汉字 ]
+
 translator:
+  #comment_format:
+   # - "xlit|abcdefghijklmnopqrstuvwxyz|日月金木水火土竹戈十大中一弓人心手口尸廿山女田難卜符|"
+  preedit_format:
+    #- "xform/^([a-z]*)$/$1\\t[\\U$1\\E]/" 🀙
+    - "xlit|abcdefghijklmnopqrstuvwxyz|♠♥♣♦♤♡♧♢☻🀠🀄🀚🀛🀜🀟⌚☂🀡🀩🀅♔♘⛄♙❆⚢|"
+    - "xlit|ABCDEFGHIJKLMNOPQRSTUVWXYZ|🀀🀁🀂🀃🀄☀☁⛅⛈⛆🀞🀝☔☺☃⛇♕♖♗♚♛♜♝♞♟☠|"
   dictionary: wubi86_cof
   prism: wubi86_cof
   disable_user_dict_for_patterns:
     - "^z.*$"
   enable_charset_filter: true
+  enable_completion: true
   enable_encoder: false
   enable_sentence: false
   enable_user_dict: false
@@ -75,6 +86,7 @@ engine:
   filters:
     - simplifier
     - uniquifier
+
 ascii_composer:
   good_old_caps_lock: true
   switch_key:
@@ -84,6 +96,7 @@ ascii_composer:
     Eisu_toggle: clear
     Shift_L: commit_code
     Shift_R: commit_code
+
 key_binder:
   bindings:
     - {accept: semicolon, send: 2, when: has_menu}
@@ -97,13 +110,14 @@ key_binder:
     - {accept: minus, send: Page_Up, when: has_menu}
     - {accept: equal, send: Page_Down, when: has_menu}
 
-
 menu:
   page_size: 5
+
 simplifier:
   opencc_config: s2t.json
   option_name: zh_trad
   tips: all
+
 punctuator:
   full_shape: &punct
     #" ": [" ", "　"]
@@ -133,7 +147,7 @@ punctuator:
     "[": ["「", "【", "〔", "［"]
     "\\": ["、", "＼"]
     "]": ["」", "】", "〕", "］"]
-    "^": ["^", "……"]
+    "^": ["^", "……", "…"]
     _: ["_", "——"]
     "`": ["`", "｀"]
     "{": ["『", "〖", "｛"]
@@ -141,17 +155,39 @@ punctuator:
     "}": ["』", "〗", "｝"]
     "~": ["~", "～"]
   half_shape: *punct
-    
-  import_preset: default
+  symbols:
+    "/g": {commit: "『"}
+    "/h": {commit: "』"}
+    "/1": ["①", "⑴", "㈠"]
+    "/2": ["②", "⑵", "㈡"]
+    "/3": ["③", "⑶", "㈢"]
+    "/4": ["④", "⑷", "㈣"]
+    "/5": ["⑤", "⑸", "㈤"]
+    "/6": ["⑥", "⑹", "㈥"]
+    "/7": ["⑦", "⑺", "㈦"]
+    "/8": ["⑧", "⑻", "㈧"]
+    "/9": ["⑨", "⑼", "㈨"]
+    "/0": ["⑩", "⑽", "㈩"]
+    "/of": "℉"
+    "/oc": "℃"
+
 recognizer:
-  import_preset:
   patterns:
     #email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"
     reverse_lookup: "^z[a-z]*`?$"
+    punct: "^/([0-9]0?|[A-Za-z]+)$"
     #uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
     #url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]+[.].+$"
+
 reverse_lookup:
   dictionary: cof_punctuator
   prefix: z
   suffix: 
   tips: "〔cof_punct〕"
+
+style:
+  color_scheme: dark_temple
+  font_face: "宋体"
+  font_point: 20
+  label_format: "%s."
+  
