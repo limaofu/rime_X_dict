@@ -10,6 +10,8 @@ rime extention dictionarys &amp; schema
 ![demo4](pic/demo6.jpg) <br>
 ![demo5](pic/demo7.jpg) <br>
 2. 按下Shift+space可以切换简体与繁体（是指输简得繁）的开关。<br>
+开启输简得繁后：<br>
+![demo8](pic/demo8.jpg) <br>
 3. 按下/键后，输入单个小写字母可列出该字母对应的五笔字根部件<br>
 ![demo4](pic/demo4.jpg) <br>
 ![demo5](pic/demo5.jpg) <br>
