@@ -10,6 +10,7 @@ rime extention dictionarys &amp; schema
 2. 按下Shift+space可以切换简体与繁体（是指输简得繁）的开关。<br>
 3. 按下/键后，输入单个小写字母可列出该字母对应的五笔字根部件
 4. 增加了繁体部件字根，按大写字母即可输入特定繁体部件字根，可直接输入繁体字；增加的繁体部件字根如下：<br>
+![zigen](pic/zigen.jpg) <br>
  Q		釒<br>
  W		興字头/飠<br>
  E		學字头<br>
