@@ -6,6 +6,7 @@ rime extention dictionarys &amp; schema
 可按分号键选择第二个候选字上屏，跟五笔的习惯一样。
 
 # wubi86_cof
+### 五笔86版的cof扩展方案 ，扩展内容如下：
 1. 在五笔86的基础上增加了cof符号输入法，直接按下大写字母开头的编码即可打出符号，含日文，希腊字母，其他符号<br>
 ![demo4](pic/demo6.jpg) <br>
 ![demo5](pic/demo7.jpg) <br>
