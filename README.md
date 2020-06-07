@@ -8,7 +8,9 @@ rime extention dictionarys &amp; schema
 # wubi86_cof
 1. 在五笔86的基础上增加了cof符号输入法，直接按下大写字母开头的编码即可打出符号，含日文，希腊字母，其他符号<br>
 2. 按下Shift+space可以切换简体与繁体（是指输简得繁）的开关。<br>
-3. 按下/键后，输入单个小写字母可列出该字母对应的五笔字根部件
+3. 按下/键后，输入单个小写字母可列出该字母对应的五笔字根部件<br>
+![demo4](pic/demo4.jpg) <br>
+![demo5](pic/demo5.jpg) <br>
 4. 增加了繁体部件字根，按大写字母即可输入特定繁体部件字根，可直接输入繁体字；增加的繁体部件字根如下：<br>
 ![zigen](pic/zigen.jpg) <br>
  Q		釒<br>
