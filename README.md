@@ -40,7 +40,7 @@ rime extention dictionarys &amp; schema
  V		⺻/書字头<br>
  C		馬<br>
  X		糹<br>
- 5. 繁体字根打字示范： <br>
+  繁体字根打字示范： <br>
  ![demo1](pic/demo1.jpg) <br>
  ![demo2](pic/demo2.jpg) <br>
  ![demo3](pic/demo3.jpg) <br>
