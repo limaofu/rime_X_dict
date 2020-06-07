@@ -16,7 +16,7 @@ rime extention dictionarys &amp; schema
 3. 按下/键后，输入单个小写字母可列出该字母对应的五笔字根部件<br>
 ![demo4](pic/demo4.jpg) <br>
 ![demo5](pic/demo5.jpg) <br>
-4. 增加了繁体部件字根，按大写字母即可输入特定繁体部件字根，可直接输入繁体字；增加的繁体部件字根如下：<br>
+4. 增加了繁体部件字根，按大写字母即可输入特定繁体部件字根，实现了繁体字的直接输入；增加的繁体部件字根如下：<br>
 ![zigen](pic/zigen.jpg) <br>
  Q		釒<br>
  W		興字头/飠<br>
