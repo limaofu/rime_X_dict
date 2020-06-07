@@ -8,16 +8,16 @@ rime extention dictionarys &amp; schema
 # ② wubi86_cof
 ### 五笔86版的cof扩展方案 ，扩展内容如下：
 1. 在五笔86的基础上增加了cof符号输入法，直接按下大写字母开头的编码即可打出符号，含日文，希腊字母，其他符号<br>
-![demo4](pic/demo6.jpg) <br>
-![demo5](pic/demo7.jpg) <br>
+![demo4](../pic/demo6.jpg) <br>
+![demo5](../pic/demo7.jpg) <br>
 2. 按下Shift+space可以切换简体与繁体（是指输简得繁）的开关。<br>
 开启输简得繁后：<br>
-![demo8](pic/demo8.jpg) <br>
+![demo8](../pic/demo8.jpg) <br>
 3. 按下/键后，输入单个小写字母可列出该字母对应的五笔字根部件<br>
-![demo4](pic/demo4.jpg) <br>
-![demo5](pic/demo5.jpg) <br>
+![demo4](../pic/demo4.jpg) <br>
+![demo5](../pic/demo5.jpg) <br>
 4. 增加了繁体部件字根，按大写字母即可输入特定繁体部件字根，实现了繁体字的直接输入；增加的繁体部件字根如下：<br>
-![zigen](pic/zigen.jpg) <br>
+![zigen](../pic/zigen.jpg) <br>
  Q		釒<br>
  W		興字头/飠<br>
  E		學字头<br>
@@ -44,7 +44,7 @@ rime extention dictionarys &amp; schema
  C		馬<br>
  X		糹<br>
   繁体字根打字示范： <br>
- ![demo1](pic/demo1.jpg) <br>
- ![demo2](pic/demo2.jpg) <br>
- ![demo3](pic/demo3.jpg) <br>
+ ![demo1](../pic/demo1.jpg) <br>
+ ![demo2](../pic/demo2.jpg) <br>
+ ![demo3](../pic/demo3.jpg) <br>
 
