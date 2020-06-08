@@ -18,23 +18,23 @@ rime extention dictionarys &amp; schema
 ![demo5](./pic/demo5.jpg) <br>
 4. 增加了繁体部件字根，按大写字母即可输入特定繁体部件字根，实现了繁体字的直接输入；增加的繁体部件字根如下：<br>
 ![zigen](./pic/zigen2.jpg) <br>
-  Q		釒
- W		興字头/飠
- E		學字头
- R		鳥，鳥字头/烏
- T		與字頭
- Y		訁
- U		門
- I		齊字头
- O		爲去爫头/為无左上角的点
- P		
- A		帶字头
- S		𡸸擊的左上角
- D		豐字头
- F		臣
- G		冓字头/穀字左上角部件
- H		鹵
- J		𢇇字底/肅字下面无竖，淵的右边
+  Q		釒<br>
+ W		興字头/飠<br>
+ E		學字头<br>
+ R		鳥，鳥字头/烏<br>
+ T		與字頭<br>
+ Y		訁<br>
+ U		門<br>
+ I		齊字头<br>
+ O		爲去爫头/為无左上角的点<br>
+ P		<br>
+ A		帶字头<br>
+ S		𡸸擊的左上角<br>
+ D		豐字头<br>
+ F		臣<br>
+ G		冓字头/穀字左上角部件<br>
+ H		鹵<br>
+ J		𢇇字底/肅字下面无竖，淵的右边<br>
  K		黽<br>
  L		車<br>
  M		貝<br>
