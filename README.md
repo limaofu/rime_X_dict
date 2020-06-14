@@ -47,4 +47,6 @@ rime extention dictionarys &amp; schema
  ![demo1](./pic/demo1.jpg) <br>
  ![demo2](./pic/demo2.jpg) <br>
  ![demo3](./pic/demo3.jpg) <br>
+ ## 五笔86版字根（超全）
+  ![dexxx](./pic/5b86.jpg) <br>
 
