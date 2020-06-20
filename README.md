@@ -47,6 +47,9 @@ rime extention dictionarys &amp; schema
  ![demo1](./pic/demo1.jpg) <br>
  ![demo2](./pic/demo2.jpg) <br>
  ![demo3](./pic/demo3.jpg) <br>
+ 5. 增加颜文字滤镜功能，当有颜文字提示时，按下Enter键输入颜文字，按下空格键则是候选字/词上屏
+ ![demo1](./pic/demo22.jpg) <br>
+ ![demo2](./pic/demo23.jpg) <br>
  ## 五笔86版字根（超全）
   ![dexxx](./pic/5b86.jpg) <br>
 
