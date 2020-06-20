@@ -27,15 +27,15 @@ rime extention dictionarys &amp; schema
  U		門<br>
  I		齊字头<br>
  O		爲去爫头/為无左上角的点<br>
- P		<br>
+ P		龍<br>
  A		帶字头<br>
  S		𡸸擊的左上角<br>
  D		豐字头<br>
  F		臣<br>
- G		冓字头/穀字左上角部件<br>
+ G		冓字头/，穀字左上角部件<br>
  H		鹵<br>
  J		𢇇字底/肅字下面无竖，淵的右边<br>
- K		黽<br>
+ K		黽/𠀐，贵字头<br>
  L		車<br>
  M		貝<br>
  N		韋<br>
