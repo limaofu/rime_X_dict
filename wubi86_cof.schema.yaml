@@ -1,59 +1,72 @@
 # utf-8
 # wubi86_cof.schema.yaml
 # Recommended font family: Serif_Cof
-# 2020-06-19
+# 2020-06-23
 
 schema:
   author:
     - "发明人 王永民先生"
   description: |
     五笔86版 cof扩展版
-    码表源自 ibus-table
+    码表源自 ibus-table 删除4字及以上词
     扩充了大写字母繁体部件字根
-    开头大写字母进入假名输入模式
+    开头大写字母进入日文假名输入模式
     按下小写 z 键进入cof符号输入法
     按下z键时，会提示上次输入的字/词
-    按下TAb键可取消当前输入
-    按下Shift+space切换 输简得繁
-    扩展人：Cof-Lee
+    按下Tab键可取消当前输入
+    按下Shift+space切换 颜文字开关
+    扩展人：Cof-Lee 2020-06-22
   name: "五笔86_cof"
   schema_id: wubi86_cof
   version: 1.3
 
 speller:
-  delimiter: " "
+  delimiter: ","
   alphabet: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
-  max_code_length: 4
+  #max_code_length: 4
   #auto_select: true
   #auto_select_unique_candidate: true
-  auto_clear: max_length
+  #auto_clear: max_length
 
 switches:
   - name: ascii_mode
     reset: 1
     states: ["中", "英"]
-  - name: full_shape
-    reset: 0
-    states: ["半", "全"]
+  #- name: full_shape
+    #reset: 0
+    #states: ["半", "全"]
   - name: extended_charset
     reset: 1
-    states: ["常", "扩"]
+    #states: ["常utf", "扩utf"]
+  - options: ["gbk", "utf8"]
+    reset: 1
+    states: ["Gbk", "Utf8"]
   - name: ascii_punct
     reset: 0
-    states: ["。，", "．，"]
+    #states: ["。，", "．，"]
+  - name: cof_trans
+    states: [关, 🐷颜]
+    reset: 0
   - name: zh_trad
     reset: 0
-    states: ["简", "繁"]
-  - name: cof_trans
-    states: [不转, 转换]
-    reset: 1
+    states: ["关", "繁s2t"]
+  - name: pinyin
+    states: [关, 拼音]
+    reset: 0
+  - name: gbk_code
+    states: [关, 国gbk]
+    reset: 0
+  - name: Utf16_code
+    states: [关, 统u16]
+    reset: 0
 
 translator:
   #comment_format:
    # - "xlit|abcdefghijklmnopqrstuvwxyz|工了以在有地一上不是中国同民为这我的要和产发人经主z|"
   preedit_format:
     #- "xform/^([a-z]*)$/$1\\t[\\U$1\\E]/" 🀙
-    - "xlit|abcdefghijklmnopqrstuvwxyz|♠♥♣♦♤♡♧♢☻🀠🀄🀚🀛🀜🀟⌚☂⛅🀩🀅♔♘⛄♙❆⚢|"
+    #- "xlit|abcdefghijklmnopqrstuvwxyz|♠♥♣♦♤♡♧♢☻🀠🀄🀚🀛🀜🀟⌚☂⛅🀩🀅♔♘⛄♙❆⚢|"
+    - "xlit|abcdefghijklmnopqrstuvwxyz|🐭🐮🐅🐰🐉🐘🐎🐏🐒🐓🐕🐷🐫🦌🐂👻👽💩❤💔🐥🐸🦖🦋🐝z|"
     - "xlit|ABCDEFGHIJKLMNOPQRSTUVWXYZ|爿馬臣鹵𠀐車貝韋龍釒鳥門⺻飠糹訁☠|"
   dictionary: wubi86_cof
   prism: wubi86_cof
@@ -62,10 +75,11 @@ translator:
   enable_charset_filter: true
   enable_completion: true
   enable_encoder: false
-  enable_sentence: false
+  enable_sentence: true
   enable_user_dict: false
   encode_commit_history: false
-  max_phrase_length: 4
+  max_phrase_length: 12
+  
   
 engine:
   processors:
@@ -88,10 +102,21 @@ engine:
     - reverse_lookup_translator
     - table_translator
     - history_translator
+# lua 的 日期，星期，时间
+    - lua_translator@date_translator
+    - lua_translator@week_translator
+    #- lua_translator@charset_comment_filter
+
   filters:
-    - simplifier
-    - uniquifier
     - "simplifier@cof_trans"
+    - simplifier
+    - "simplifier@pinyin"
+    - "simplifier@gbk_code"
+    - "simplifier@Utf16_code"
+    - charset_filter@gbk
+    #- charset_filter@gb2312
+    - lua_filter@charset_comment_filter
+    - uniquifier
 
 ascii_composer:
   good_old_caps_lock: true
@@ -111,15 +136,20 @@ key_binder:
     - {accept: space, send: Escape, when: composing}
     - {accept: Tab, send: Escape, when: has_menu}
     - {accept: Tab, send: Escape, when: composing}
-    - {accept: "Shift+space", toggle: zh_trad, when: composing}
-    - {accept: "Control+f", toggle: full_shape, when: always}
+    - {accept: "Shift+space", send: Down, when: has_menu}
+    - {accept: "Control+e", toggle: cof_trans, when: has_menu}
+    - {accept: "Control+f", toggle: zh_trad, when: has_menu}
+    - {accept: "Control+g", toggle: gbk_code, when: has_menu}
+    - {accept: "Control+u", toggle: Utf16_code, when: has_menu}
+    - {accept: "Control+p", toggle: pinyin, when: has_menu}
     - {accept: minus, send: Page_Up, when: has_menu}
     - {accept: equal, send: Page_Down, when: has_menu}
     - {accept: Return, send: "Control+Shift+Return", when: has_menu}
 
 menu:
   page_size: 5
-  alternative_select_labels: [ , , , , , ⑥, ⑦, ⑧, ⑨ ]
+  #alternative_select_labels: [ , , , , , , , , ⑥, ⑦]
+  alternative_select_labels: [ 🐷, 🐭, 🐰, 👽, 🐸, 🐷, 🐭, 🐰, 👽, 🐸]
   #alternative_select_keys: "ABCDE"
 
 history:
@@ -131,6 +161,7 @@ history:
 simplifier:
   opencc_config: s2t.json
   option_name: zh_trad
+  show_in_comment: true
   tips: all
 
 cof_trans:
@@ -138,11 +169,29 @@ cof_trans:
   option_name: cof_trans
   show_in_comment: true
   comment_format:
-    - "xform/☯/ · /"    
+    - "xform/☯/ · /"
     - "xform/<br>/\r/"
   tags:
     - abc
   tips: all
+
+pinyin:
+  opencc_config: pinyin.json
+  option_name: pinyin
+  show_in_comment: true
+  tips: char
+
+gbk_code:
+  opencc_config: gbk_code.json
+  option_name: gbk_code
+  show_in_comment: true
+  tips: char
+
+Utf16_code:
+  opencc_config: Utf16_code.json
+  option_name: Utf16_code
+  show_in_comment: true
+  tips: char
 
 punctuator:
   full_shape: &punct
@@ -201,31 +250,31 @@ punctuator:
     "/0": ["⑩", "⑽", "㈩"]
     "/of": "℉"
     "/oc": "℃"
-    "/g": ["龶", "⺩", "⼀", "㇀", "", "", "", ""]
-    "/f": ["⻗", "𬺰", "", "", "", "", "", ""]
-    "/d": ["丆", "⻒", "𠂇", "", "", "", "", ""]
-    "/s": ["覀", "朩", "", "", "", "", "", ""]
-    "/a": ["丌", "卄", "艹", "龷", "⼶", "⼷", "𫠠", "匚", "", "", "", "", "", "", ""]
-    "/h": ["亅", "龰", "⺊", "⼁", "", "", "", ""]
-    "/j": ["刂", "⺜", "〢", "𫩏", "", ""]
-    "/k": ["〣", "", "", "", "", "", "", ""]
-    "/l": ["罒", "⼞", "𡆧", "㇣", "", "", "", "", ""]
-    "/m": ["冂", "⺆", "⺇", "", "", "", "", ""]
+    "/g": ["龶", "⺩", "⼀", "㇀"]
+    "/f": ["⻗", "𬺰", "",]
+    "/d": ["丆", "⻒", "𠂇", "", "", ""]
+    "/s": ["覀", "朩", ""]
+    "/a": ["丌", "卄", "艹", "龷", "⼶", "⼷", "𫠠", "匚", "", "", "", "", "", ""]
+    "/h": ["亅", "龰", "⺊", "⼁", "", "", ""]
+    "/j": ["刂", "⺜", "〢", "𫩏", ""]
+    "/k": ["〣"]
+    "/l": ["罒", "⼞", "𡆧", "㇣", "", "", ""]
+    "/m": ["冂", "⺆", "⺇", "", "", "", ""]
     "/t": ["丿", "㇒", "夂", "夊", "攵", "〩", "彳", "⺮", "𠂉"]
-    "/r": ["龵", "⺁", "⺘", "", "", "", ""]
-    "/e": ["彡", "爫", "豕", "⺝", "冃", "𧘇", "𧰨", "", "", "", "", "", "", "", ""]
-    "/w": ["亻", "癶", "ㅅ", "𠆢", "", "", ""]
-    "/q": ["〤", "乂", "勹", "钅", "⺈", "𫶧", "", "", "", "", "", ""]
-    "/y": ["丶", "亠", "訁", "讠", "㇏", "", "", ""]
-    "/u": ["丬", "丷", "冫", "疒", "⺀", "䒑", "", "", ""]
-    "/i": ["氵", "⺌", "⺍", "𭕄", "氺", "⺢", "𣥂", "", "", "", "", ""]
-    "/o": ["灬", "", "", ""]
-    "/p": ["冖", "宀", "辶", "⻍", "⻎", "⼵", "", ""]
-    "/n": ["⼄", "乁", "𠃜", "乚", "㇟", "乛", "㇕", "忄", "⺄", "㇝", "⺒", "", "⺗", "㇁", "㇂", "㇃", "㇄", "㇗", "㇅", "㇆", "㇇", "㇈", "㇉", "㇞", "㇊", "㇋", "㇌", "㇍", "㇎", "㇙", "㇛", "㇜", "㇡", "㇢", "ㄣ", "ㄅ", "ㄟ", "ㄱ", "ㄴ", "", "", "", ""]  
+    "/r": ["龵", "⺁", "⺘", "", "", ""]
+    "/e": ["彡", "爫", "豕", "⺝", "冃", "𧘇", "𧰨", "", "", "", "", "", "", ""]
+    "/w": ["亻", "癶", "ㅅ", "𠆢", "", ""]
+    "/q": ["〤", "乂", "勹", "钅", "⺈", "𫶧", "", "", "", "", ""]
+    "/y": ["丶", "亠", "訁", "讠", "㇏", "", ""]
+    "/u": ["丬", "丷", "冫", "疒", "⺀", "䒑", "", ""]
+    "/i": ["氵", "⺌", "⺍", "𭕄", "氺", "⺢", "𣥂", "", "", "", ""]
+    "/o": ["灬", "", ""]
+    "/p": ["冖", "宀", "辶", "⻍", "⻎", "⼵", ""]
+    "/n": ["⼄", "乁", "𠃜", "乚", "㇟", "乛", "㇕", "忄", "⺄", "㇝", "⺒", "", "⺗", "㇁", "㇂", "㇃", "㇄", "㇗", "㇅", "㇆", "㇇", "㇈", "㇉", "㇞", "㇊", "㇋", "㇌", "㇍", "㇎", "㇙", "㇛", "㇜", "㇡", "㇢", "ㄣ", "ㄅ", "ㄟ", "ㄱ", "ㄴ", " ", "", "", ""]  
     "/b": ["凵", "卩", "孑", "巜", "阝", "⻏", "⺋", "𠄐"]
-    "/v": ["巛", "彐", "⺽", "⼹", "", ""]
-    "/c": ["厶", "龴", "ㅈ", "ㄡ", "", ""]
-    "/x": ["纟", "⺓", "⼔", "𠤎", "", "", "", "", "", ""]
+    "/v": ["巛", "彐", "⺽", "⼹", ""]
+    "/c": ["厶", "龴", "ㅈ", "ㄡ", ""]
+    "/x": ["纟", "⺓", "⼔", "𠤎", "", "", "", "", ""]
 # 未定义(9fb0--9fbb)龰龱龴龵龶龷龸龹龺龻
 # cjk扩A	䒑
 # cjk扩B	𠂇𠂉𡗗𤇾    𠃜𠄐𠆢𠤎𡆧𣥂𧘇𧰨
@@ -287,7 +336,7 @@ punctuator:
 recognizer:
   patterns:
     #email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"
-    reverse_lookup: "^z[a-zA-Z]*`?$"
+    reverse_lookup: "^z[a-zA-Z0-9]*`?$"
     punct: "^/([0-9]0?|[A-Za-z]+)$"
     #uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
     #url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]+[.].+$"
@@ -299,9 +348,21 @@ reverse_lookup:
   tips: "〔cof_punct〕"
   enable_completion: true
 
+
 style:
-  color_scheme: dark_temple
+  color_scheme: cof_color
   font_face: "Serif_Cof"
   font_point: 20
   label_format: "%s "
+  layout:
+    min_width: 160
+    min_height: 0
+    border_width: 3
+    margin_x: 10
+    margin_y: 10
+    spacing: 10
+    candidate_spacing: 5
+    hilite_spacing: 5
+    hilite_padding: 1
+    round_corner: 15
   
