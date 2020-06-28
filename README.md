@@ -22,7 +22,7 @@ bin-→dec. <br>
 2. 按下Control+f 可以切换简体与繁体（是指输简得繁）的开关。<br>
 ![demo8](./pic/s2trad.gif) <br>
 3. 按下/键后，输入单个小写字母可列出该字母对应的五笔字根部件<br>
-![demo4](./pic/zigenbj.gif) <br>
+![demo4](./pic/zigen.gif) <br>
 4. 增加了繁体部件字根，按大写字母即可输入特定繁体部件字根，实现了繁体字的直接输入；增加的繁体部件字根如下：<br>
 ![zigen](./pic/zigen2.jpg) <br>
   Q		釒<br>
