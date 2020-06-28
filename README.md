@@ -23,7 +23,9 @@ bin-→dec. <br>
 ![demo8](./pic/s2trad.gif) <br>
 3. 按下/键后，输入单个小写字母可列出该字母对应的五笔字根部件<br>
 ![demo4](./pic/zigen.gif) <br>
-4. 增加了繁体部件字根，按大写字母即可输入特定繁体部件字根，实现了繁体字的直接输入；增加的繁体部件字根如下：<br>
+4. 增加了繁体部件字根，按大写字母即可输入特定繁体部件字根，实现了繁体字的直接输入；<br>
+增加的词库文件wubi86_cof_cap.dict.yaml<br>
+增加的繁体部件字根如下：<br>
 ![zigen](./pic/zigen2.jpg) <br>
   Q		釒<br>
  W		興字头/飠<br>
@@ -53,14 +55,17 @@ bin-→dec. <br>
   繁体字根打字示范： <br>
  ![demo1](./pic/fanzigen.gif) <br>
  
- 5. 增加颜文字滤镜功能，按Control+e开启，当有颜文字提示时，按下Enter键输入颜文字，按下空格键则是候选颜文字上屏
+ 5. 增加颜文字滤镜功能，按Control+e开启，当有颜文字提示时，按下Enter键输入颜文字，按下空格键则是候选颜文字上屏<br>
+ 滤镜文件：cof_trans.json 和 cof_trans.txt <br>
  ![demo1](./pic/emoji3.gif) <br>
  
  6. 增加字符编码（16进制）提示，按下control+g提示单字gbk编码，按下control+u提示单字unicode编码<br>
+ 滤镜文件：gbk_code.json 和 gbk_code.txt ; Utf16_code.json 和 Utf16_code.txt<br>
  默认已提示cjk字符的分区，以及unicode的10进制编码<br>
  ![code](./pic/gucode.gif)
  
- 7. 增加单字 现代汉语拼音提示，按下Control+p开启
+ 7. 增加单字 现代汉语拼音提示，按下Control+p开启<br>
+ 滤镜文件：pinyin.json 和 pinyin.txt <br>
   ![code](./pic/pinyin.gif)
  
  ## 五笔86版字根
