@@ -56,10 +56,12 @@ bin-→dec. <br>
  5. 增加颜文字滤镜功能，按Control+e开启，当有颜文字提示时，按下Enter键输入颜文字，按下空格键则是候选颜文字上屏
  ![demo1](./pic/emoji3.gif) <br>
  
- 6. 增加字符编码（16进制）提示，按下control+g提示单字gbk编码，按下control+u提示单字unicode编码
+ 6. 增加字符编码（16进制）提示，按下control+g提示单字gbk编码，按下control+u提示单字unicode编码<br>
  默认已提示cjk字符的分区，以及unicode的10进制编码<br>
  ![code](./pic/gucode.gif)
  
+ 7. 增加单字 现代汉语拼音提示，按下Control+p开启
+  ![code](./pic/pinyin.gif)
  
  ## 五笔86版字根
   ![dexxx](./pic/5b86.jpg) <br>
