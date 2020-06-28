@@ -55,8 +55,8 @@ bin-→dec. <br>
   繁体字根打字示范： <br>
  ![demo1](./pic/fanzigen.gif) <br>
  
- 5. 增加颜文字滤镜功能，按Control+e开启，当有颜文字提示时，按下Enter键输入颜文字，按下空格键则是候选颜文字上屏<br>
- 滤镜文件：cof_trans.json 和 cof_trans.txt <br>
+ 5. 增加颜文字滤镜功能，按Control+e开启，当有颜文字提示时，按下Enter键输入颜文字，按下空格键则是<br>候选颜文字上屏
+  , 滤镜文件：cof_trans.json 和 cof_trans.txt <br>
  ![demo1](./pic/emoji3.gif) <br>
  
  6. 增加字符编码（16进制）提示，按下control+g提示单字gbk编码，按下control+u提示单字unicode编码<br>
@@ -68,7 +68,7 @@ bin-→dec. <br>
  滤镜文件：pinyin.json 和 pinyin.txt <br>
 ![code](./pic/pinyin.gif)
  
- 8. 增加实时日期及时间星期的提示（直接打 日期，时间，星期）
+ 8. 增加实时日期及时间星期的提示（直接打 日期，时间，星期）<br>
 ![date](./pic/date.gif)
  
  ## 五笔86版字根
