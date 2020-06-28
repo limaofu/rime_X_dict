@@ -66,7 +66,10 @@ bin-→dec. <br>
  
  7. 增加单字 现代汉语拼音提示，按下Control+p开启<br>
  滤镜文件：pinyin.json 和 pinyin.txt <br>
-  ![code](./pic/pinyin.gif)
+![code](./pic/pinyin.gif)
+ 
+ 8. 增加实时日期及时间星期的提示（直接打 日期，时间，星期）
+![date](./pic/date.gif)
  
  ## 五笔86版字根
   ![dexxx](./pic/5b86.jpg) <br>
