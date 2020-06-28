@@ -7,6 +7,10 @@ rime extention dictionarys &amp; schema
 
 # ② cof_network
 网络ip地址转换方案，IP地址转换成十六进制数，ip地址转二进制数，十六进制转10进制，二进制转十进制<br>
+dec.→hex <br>
+dec,→bin <br>
+hex/→dec. <br>
+bin-→dec. <br>
 ![net](./pic/cof_network.gif) <br>
 
 
