@@ -17,7 +17,7 @@ bin-→dec. <br>
 # ③ wubi86_cof
 ### 五笔86版的cof扩展方案 ，扩展内容如下：
 1. 在五笔86的基础上增加了cof符号输入法，直接按下大写字母开头的编码即可打出符号，含日文等其他符号<br>
-![demo4](./pic/kana.gif) <br>
+![demo4](./pic/watashi.gif) <br>
 
 2. 按下Shift+space可以切换简体与繁体（是指输简得繁）的开关。<br>
 开启输简得繁后：<br>
