@@ -2,12 +2,14 @@
 # encoding: utf-8
 #
 # Author: Cof-Lee
-# Date: 2020-06-19
+# Date: 2020-06-28
 #
 # extention on capital letter
 # 大写字母的扩展词库
 # 主要扩展内容：假名( cof_kana )，新增普通字词( new_words )，
 #                大写字母字根字( cof_trad )
+#   在使用了末笔识别码后仍有第二重码常用字的，追加编码z （ cof_second_z ）
+# 单个大写辅单字母的全角符号 ( cof_punc )
 ---
 name: wubi86_cof_cap
 version: "0.2"
@@ -326,7 +328,7 @@ columns:
 ヴォ	Vo	20000
 
 
-# 々 归入汉字qni中
+# 々 归入汉字qyi中
 々	Diezi	20000
 々	Odori	20000
 々	Dou	20000
@@ -395,10 +397,28 @@ columns:
 成	atnv	2000
 盛	atnl	2000
 晟	jatn	200000
+戉	anv	171000002
 过会	fpwf	2000
-々	qni	2000
+々	qyi	108000002
 蔻	apfc	71900
 跟打	khrs	527001
+跟打器	krkk	200
+官网	pnmq	200
+礼义	pyyq	20000
+帐号	mhkg	818000000
+正向	ghtm	7480000
+
+
+
+# cof_second_z 第二重码追加编码z
+云	fcuz	2000
+善	udukz	2000
+
+# cof_punc  P已给了片假长音符ー  N已给假名んン
+、	D	20000
+々	Z	20000
+……	S	20000
+→	L	20000
 
 # 繁體字根字 cof_trad
 # Version: 1.3
@@ -613,6 +633,7 @@ columns:
 
 # K	黽黾 cof_trad_K
 黽	Khnn	20000
+䵷	ffK	20000
 黿	fqK	20000
 蠅	jKn	20000
 𪓮	jqwK	20000
@@ -621,8 +642,9 @@ columns:
 繩	XK	20000
 䵴	lfoK	20000
 䵶	qkK	20000
-䵷	ffK	20000
+鼄	riK	20000
 䵸	toK	20000
+鼅	tdkK	20003
 䵹	tdkK	20000
 
 匮	aKm	20000
@@ -647,6 +669,7 @@ columns:
 簣	tKM	20000
 阓	uKm	20000
 闠	UKM	20000
+𫝬	vKm	20000
 缋	xKm	20000
 繢	XKM	20000
 
@@ -681,6 +704,7 @@ columns:
 渾	ipL	20000
 輝	iqpL	20000
 暈	jpL	20000
+𫝚	kLfc	2000
 囀	kLgf	20000
 軾	Laa	20000
 輒	Lbn	20000
@@ -1143,6 +1167,7 @@ columns:
 鎳	Qths	20000
 鋨	Qtrt	20000
 鋂	Qtxu	20000
+釞	Qty	20000
 鋅	Qu	2000
 鍆	QU	20000
 鐥	Qudk	20000
@@ -1426,6 +1451,7 @@ columns:
 鵠	tfkR	20000
 鶖	toRu	20000
 鵝	trnR	20000
+鳰	tyR	20000
 鵁	uqR	20000
 鶼	uvoR	20000
 鵜	uxhR	20000
@@ -2195,3 +2221,7 @@ columns:
 臠	XyXw	20000
 彎	XYXx	20000
 彎	XyXx	20000
+
+巽	nnaw	1
+拔	rdcy	1
+爨	wfmo	1

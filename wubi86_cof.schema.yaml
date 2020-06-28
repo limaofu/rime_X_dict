@@ -1,7 +1,7 @@
 # utf-8
 # wubi86_cof.schema.yaml
 # Recommended font family: Serif_Cof
-# 2020-06-23
+# 2020-06-28
 
 schema:
   author:
@@ -14,14 +14,14 @@ schema:
     按下小写 z 键进入cof符号输入法
     按下z键时，会提示上次输入的字/词
     按下Tab键可取消当前输入
-    按下Shift+space切换 颜文字开关
-    扩展人：Cof-Lee 2020-06-22
+    按下Shift+space 向下选择
+    扩展人：Cof-Lee 2020-06-28
   name: "五笔86_cof"
   schema_id: wubi86_cof
   version: 1.3
 
 speller:
-  delimiter: ","
+  delimiter: "/"
   alphabet: 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
   #max_code_length: 4
   #auto_select: true
@@ -59,10 +59,14 @@ switches:
   - name: Utf16_code
     states: [关, 统u16]
     reset: 0
+  - name: tangshi
+    states: [关, 诗ci]
+    reset: 0
 
 translator:
-  #comment_format:
+  comment_format:
    # - "xlit|abcdefghijklmnopqrstuvwxyz|工了以在有地一上不是中国同民为这我的要和产发人经主z|"
+   - "xform/~/ -/"
   preedit_format:
     #- "xform/^([a-z]*)$/$1\\t[\\U$1\\E]/" 🀙
     #- "xlit|abcdefghijklmnopqrstuvwxyz|♠♥♣♦♤♡♧♢☻🀠🀄🀚🀛🀜🀟⌚☂⛅🀩🀅♔♘⛄♙❆⚢|"
@@ -113,6 +117,7 @@ engine:
     - "simplifier@pinyin"
     - "simplifier@gbk_code"
     - "simplifier@Utf16_code"
+    - "simplifier@tangshi"
     - charset_filter@gbk
     #- charset_filter@gb2312
     - lua_filter@charset_comment_filter
@@ -142,6 +147,7 @@ key_binder:
     - {accept: "Control+g", toggle: gbk_code, when: has_menu}
     - {accept: "Control+u", toggle: Utf16_code, when: has_menu}
     - {accept: "Control+p", toggle: pinyin, when: has_menu}
+    - {accept: "Control+t", toggle: tangshi, when: has_menu}
     - {accept: minus, send: Page_Up, when: has_menu}
     - {accept: equal, send: Page_Down, when: has_menu}
     - {accept: Return, send: "Control+Shift+Return", when: has_menu}
@@ -169,7 +175,6 @@ cof_trans:
   option_name: cof_trans
   show_in_comment: true
   comment_format:
-    - "xform/☯/ · /"
     - "xform/<br>/\r/"
   tags:
     - abc
@@ -192,6 +197,15 @@ Utf16_code:
   option_name: Utf16_code
   show_in_comment: true
   tips: char
+
+tangshi:
+  opencc_config: tangshi.json
+  option_name: tangshi
+  show_in_comment: true
+  comment_format:
+    - "xform/<br>/\r/"
+    - "xform/<sp>/ /"
+  tips: all
 
 punctuator:
   full_shape: &punct
@@ -227,7 +241,7 @@ punctuator:
     "?": {commit: "？"}
     "@": ["＠", "@", "☯"]
     "[": ["「", "【", "〔", "［"]
-    "\\": ["、", "\\", "＼"]
+    "\\": ["\\", "＼", "、"]
     "]": ["」", "】", "〕", "］"]
     "^": ["^", "……", "…"]
     _: ["_", "——"]
@@ -336,7 +350,7 @@ punctuator:
 recognizer:
   patterns:
     #email: "^[A-Za-z][-_.0-9A-Za-z]*@.*$"
-    reverse_lookup: "^z[a-zA-Z0-9]*`?$"
+    reverse_lookup: "^z[a-zA-Z0-9\/]*"
     punct: "^/([0-9]0?|[A-Za-z]+)$"
     #uppercase: "[A-Z][-_+.'0-9A-Za-z]*$"
     #url: "^(www[.]|https?:|ftp[.:]|mailto:|file:).*$|^[a-z]+[.].+$"
@@ -347,6 +361,7 @@ reverse_lookup:
   suffix: 
   tips: "〔cof_punct〕"
   enable_completion: true
+  enable_sentence: true
 
 
 style:
